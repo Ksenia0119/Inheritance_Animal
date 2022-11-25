@@ -23,7 +23,7 @@ Pets::Pets() {
 	name = "Kuzya";
 	color = "Black";
 	weight = 2;
-	sound = "GAV!";
+	sound = "";
 }
 
 /// Конструктор с параметрами 

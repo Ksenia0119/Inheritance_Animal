@@ -6,17 +6,17 @@
 
 int main() {
 	try {
-		Pets Pets0("Kapa", "Orange", 200, "Mogy govorit");
+		Pets Pets0("Kapa", "Orange", 350, "hello my dear friend");
 
 		Dog Dog1("Savior", "Yes", "Sit");
 		Dog1.set_AbilitytoSwim(0);
-		Dog1.set_BaseType("Kapa", "Black", 2300, "GAV");
+		Dog1.set_BaseType("Bobik", "Black fnd white", 16000, "GAV");
 		Dog1.set_name("Rex");
 
 
-		Parrot Parrot1("Yes", "NERAZLUCHNIK");
+		Parrot Parrot1("Yes", "LovebirdsK");
 		Parrot1.set_AbilityToFly(1);
-		Parrot1.set_BaseType("Goshan", "Blue", 231.1, "CHIRIK");
+		Parrot1.set_BaseType("Gosha", "Blue", 531.1, "CHIRIK");
 		
 
 
@@ -27,11 +27,11 @@ int main() {
 
 		Pets Pets1;
 		Dog Dog2;
-		Pets* Pets2 = &Dog2;
-		Pets* Pets3 = new Parrot;
+		Pets* Pets2 = &Dog2; ///Указатель на тип Dog
+		Pets* Pets3 = new Parrot; //Создание динамического объекта
 
 		cout << Pets2->toString() << endl;
-		cout << Pets3->toString() << endl;
+		cout << Pets3->toString() << endl; //Программа сама распознает какой тип хранится в Pets2 и Pets3
 
 		
 	}
