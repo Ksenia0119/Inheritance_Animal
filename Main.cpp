@@ -1,4 +1,5 @@
-﻿/// @author Maltseva K.V.
+/// @author Maltseva K.V.
+
 /// Реализация  наследования классов "Домашние животные"
 #include <iostream>
 #include <exception>

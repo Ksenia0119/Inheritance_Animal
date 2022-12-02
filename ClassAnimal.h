@@ -1,5 +1,6 @@
 /// @author Maltseva K.V.
-/// Реализация  наследования классов "Домашние животные"
+
+/// Р РµР°Р»РёР·Р°С†РёСЏ  РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ РєР»Р°СЃСЃРѕРІ "Р”РѕРјР°С€РЅРёРµ Р¶РёРІРѕС‚РЅС‹Рµ"
 
 
 #pragma once
@@ -8,97 +9,97 @@
 using namespace std;
 
 
-class Pets				/// Класс Домашние животные
+class Pets				/// РљР»Р°СЃСЃ Р”РѕРјР°С€РЅРёРµ Р¶РёРІРѕС‚РЅС‹Рµ
 {
 protected:
-	string name;       /// Имя
-	string color;     /// Цвет
-	double weight;    /// Вес
-	string sound;     ///Звук
+	string name;       /// РРјСЏ
+	string color;     /// Р¦РІРµС‚
+	double weight;    /// Р’РµСЃ
+	string sound;     ///Р—РІСѓРє
 
 public:
 
-	Pets(); /// Конструктор без параметров
+	Pets(); /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	
-	Pets(string name1, string color1, double weight1, string sound1); /// Конструктор с параметрами
+	Pets(const string &name1,const string &color1,  double weight1,const string &sound1); /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 
-	~Pets(); /// Деструктор
+	~Pets(); /// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 
-	virtual string toString(); /// Вывод в одну строку виртуальный 
+	virtual string toString(); /// Р’С‹РІРѕРґ РІ РѕРґРЅСѓ СЃС‚СЂРѕРєСѓ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ 
 
-	void set_name(string name1); /// Установить имя
+	void set_name(const string &name1); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РёРјСЏ
 
-	string get_name() const;			/// Вернуть имя
+	string get_name() const;			/// Р’РµСЂРЅСѓС‚СЊ РёРјСЏ
 
-	void set_color(string color1); /// Установить цвет
+	void set_color(const string &color1); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С†РІРµС‚
 
-	string get_color()const;			/// Вернуть цвет
+	string get_color()const;			/// Р’РµСЂРЅСѓС‚СЊ С†РІРµС‚
 
-	void set_weight(double weight1); /// Установить вес
+	void set_weight(double weight1); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІРµСЃ
 
-	double get_weight()const;     /// Вернуть вес
+	double get_weight()const;     /// Р’РµСЂРЅСѓС‚СЊ РІРµСЃ
 
-	void set_sound(string sound1); /// Установить имя
+	void set_sound( const string &sound1); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РёРјСЏ
 
-	string get_sound()const;			/// Вернуть имя
+	string get_sound()const;			/// Р’РµСЂРЅСѓС‚СЊ РёРјСЏ
 
 };
 
 
-/// Класс Собаки
+/// РљР»Р°СЃСЃ РЎРѕР±Р°РєРё
 class Dog: public Pets {  
 private:
-	string Specialization; /// Специализация(охотничья,поводырь,сторожевая и т.д)
-	bool AbilitytoSwim; /// Умение плавать
-	string Commands; ///Знание команд
+	string Specialization; /// РЎРїРµС†РёР°Р»РёР·Р°С†РёСЏ(РѕС…РѕС‚РЅРёС‡СЊСЏ,РїРѕРІРѕРґС‹СЂСЊ,СЃС‚РѕСЂРѕР¶РµРІР°СЏ Рё С‚.Рґ)
+	bool AbilitytoSwim; /// РЈРјРµРЅРёРµ РїР»Р°РІР°С‚СЊ
+	string Commands; ///Р—РЅР°РЅРёРµ РєРѕРјР°РЅРґ
 public:
-	Dog();/// Конструктор без параметров
+	Dog();/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 
-	Dog(string spec, bool swim, string comm);/// Конструктор с параметрами
-	~Dog();/// Деструктор
+	Dog(const string &spec,bool swim,const string &comm);/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	~Dog();/// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 
-	void set_BaseType(string name1, string color1, double weight1, string sound1); /// Задание базового типа из основного класса
+	void set_BaseType(const string &name1,const string &color1, double weight1, const string &sound1); /// Р—Р°РґР°РЅРёРµ Р±Р°Р·РѕРІРѕРіРѕ С‚РёРїР° РёР· РѕСЃРЅРѕРІРЅРѕРіРѕ РєР»Р°СЃСЃР°
 
-	string toString() override;			///Вывод в одну строку виртуальный (с перезагрузкой)
+	string toString() override;			///Р’С‹РІРѕРґ РІ РѕРґРЅСѓ СЃС‚СЂРѕРєСѓ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ (СЃ РїРµСЂРµР·Р°РіСЂСѓР·РєРѕР№)
 
-	void set_specialization(string spec); /// Установить специализацию
+	void set_specialization( const string &spec); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЋ
 
-	string get_specialization()const; /// Вернуть специализацию
+	string get_specialization()const; /// Р’РµСЂРЅСѓС‚СЊ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЋ
 
-	void set_AbilitytoSwim(bool swim); /// Установить умение плавать
+	void set_AbilitytoSwim(bool swim); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СѓРјРµРЅРёРµ РїР»Р°РІР°С‚СЊ
 
-	bool get_AbilitytoSwim()const;/// Вернуть умение плавать
+	bool get_AbilitytoSwim()const;/// Р’РµСЂРЅСѓС‚СЊ СѓРјРµРЅРёРµ РїР»Р°РІР°С‚СЊ
 
-	void set_commands(string comm); /// Установить знание команд
+	void set_commands(const string &comm); /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р·РЅР°РЅРёРµ РєРѕРјР°РЅРґ
 
-	string get_commands()const;/// Вернуть знание команд
+	string get_commands()const;/// Р’РµСЂРЅСѓС‚СЊ Р·РЅР°РЅРёРµ РєРѕРјР°РЅРґ
 };
 
-/// Класс Попугаи
+/// РљР»Р°СЃСЃ РџРѕРїСѓРіР°Рё
 class Parrot : public Pets
 {
 protected:
-	bool AbilityToFly; ///Умение летать
-	string social; ///Социализация (живут ли одни/неразлучники)
+	bool AbilityToFly; ///РЈРјРµРЅРёРµ Р»РµС‚Р°С‚СЊ
+	string social; ///РЎРѕС†РёР°Р»РёР·Р°С†РёСЏ (Р¶РёРІСѓС‚ Р»Рё РѕРґРЅРё/РЅРµСЂР°Р·Р»СѓС‡РЅРёРєРё)
 public:
 
-	Parrot();     /// Конструктор без параметров
+	Parrot();     /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 
-	Parrot(bool fly, string soc);    /// Конструктор с параметрами
+	Parrot(bool fly,const string &soc);    /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 
-	~Parrot();    ///Деструктор
+	~Parrot();    ///Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 
-	void set_BaseType(string name1, string color1, double weight1, string sound1); /// Задание базового типа из основного класса
+	void set_BaseType(const string &name1, const string &color1, double weight1, const string &sound1); /// Р—Р°РґР°РЅРёРµ Р±Р°Р·РѕРІРѕРіРѕ С‚РёРїР° РёР· РѕСЃРЅРѕРІРЅРѕРіРѕ РєР»Р°СЃСЃР°
 
-	string toString() override; ///Вывод в одну строку виртуальный (с перезагрузкой)
+	string toString() override; ///Р’С‹РІРѕРґ РІ РѕРґРЅСѓ СЃС‚СЂРѕРєСѓ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ (СЃ РїРµСЂРµР·Р°РіСЂСѓР·РєРѕР№)
 
-	void set_AbilityToFly(bool fly); ///Установить умение летать
+	void set_AbilityToFly(bool fly); ///РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СѓРјРµРЅРёРµ Р»РµС‚Р°С‚СЊ
 
-	bool get_AbilityToFly()const;///Вернуть умение летать
+	bool get_AbilityToFly()const;///Р’РµСЂРЅСѓС‚СЊ СѓРјРµРЅРёРµ Р»РµС‚Р°С‚СЊ
 
-	void set_social(string soc); ///Установить социализацию
+	void set_social(const string &soc); ///РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕС†РёР°Р»РёР·Р°С†РёСЋ
 
-	string get_social()const; ///Вернуть социализацию
+	string get_social()const; ///Р’РµСЂРЅСѓС‚СЊ СЃРѕС†РёР°Р»РёР·Р°С†РёСЋ
 	
 	
 };

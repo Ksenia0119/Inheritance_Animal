@@ -1,12 +1,13 @@
 /// @author Maltseva K.V.
-/// Реализация  наследования классов "Домашние животные"
+
+/// Р РµР°Р»РёР·Р°С†РёСЏ  РЅР°СЃР»РµРґРѕРІР°РЅРёСЏ РєР»Р°СЃСЃРѕРІ "Р”РѕРјР°С€РЅРёРµ Р¶РёРІРѕС‚РЅС‹Рµ"
 #include "ClassAnimal.h"
 #include <iostream>
 #include <exception>
 #include <string>
 
 using namespace std;
-/// Перевод из double в string
+/// РџРµСЂРµРІРѕРґ РёР· double РІ string
 string eraseNulls(double number) {
 	string numStr = to_string(number);
 	if (numStr[numStr.size() - 1] == '0')
@@ -17,7 +18,7 @@ string eraseNulls(double number) {
 		numStr.erase(numStr.size() - 1, 1);
 	return numStr;
 }
-/// Конструктор без параметров
+/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 Pets::Pets() {
 	
 	name = "Kuzya";
@@ -26,8 +27,8 @@ Pets::Pets() {
 	sound = "";
 }
 
-/// Конструктор с параметрами 
-Pets::Pets(string name1, string color1, double weight1, string sound1) {
+/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё 
+Pets::Pets(const string &name1, const string &color1, double weight1,const string &sound1) {
 	if (name1 == "") throw invalid_argument("Error: field name is empty");
 	if (color1 == "") throw invalid_argument("Error: field color is empty");
 	if (weight1 != (double)weight1) throw invalid_argument("Error: field weight is empty");
@@ -38,70 +39,70 @@ Pets::Pets(string name1, string color1, double weight1, string sound1) {
 	weight = weight1;
 	sound = sound1;
 }
-/// Деструктор
+/// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Pets::~Pets() {}
-///Вывести в строку информацию о домашнем животном
+///Р’С‹РІРµСЃС‚Рё РІ СЃС‚СЂРѕРєСѓ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РґРѕРјР°С€РЅРµРј Р¶РёРІРѕС‚РЅРѕРј
 string Pets::toString() {
 	return "name: " + name + "; " + " color: " + color + "; " + " weight gramm: " + eraseNulls(weight) + "; " + " sound: " + sound + "; ";
 }
-/// Установить имя
-void Pets::set_name(string name1) {
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РёРјСЏ
+void Pets::set_name(const string &name1) {
 	if (name1 == "") throw invalid_argument("Error: field name is empty");
 	name = name1;
 }
-/// Вернуть имя
+/// Р’РµСЂРЅСѓС‚СЊ РёРјСЏ
 string Pets::get_name()const {
 	return name;
 }
-/// Установить цвет
-void Pets::set_color(string color1) {
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С†РІРµС‚
+void Pets::set_color(const string &color1) {
 	if (color1 == "") throw invalid_argument("Error: field color is empty");
 	color = color1;
 }
-/// Вернуть цвет
+/// Р’РµСЂРЅСѓС‚СЊ С†РІРµС‚
 string Pets::get_color() const {
 	return color;
 }
-/// Установить вес
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІРµСЃ
 void Pets::set_weight(double weight1) {
 	if (weight1 != (double)weight1) throw invalid_argument("Error: field weight is empty");
 	if (weight1 <= 0) throw invalid_argument("Error: field weight <= 0");
 	weight = weight1;
 }
-/// Вернуть вес
+/// Р’РµСЂРЅСѓС‚СЊ РІРµСЃ
 double Pets::get_weight()const {
 	return weight;
 }
-/// Установить звук
-void Pets::set_sound(string sound1) {
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р·РІСѓРє
+void Pets::set_sound(const string &sound1) {
 	if (sound1 == "") throw invalid_argument("Error: field sound is empty");
 	sound = sound1;
 }
-/// Вернуть звук
+/// Р’РµСЂРЅСѓС‚СЊ Р·РІСѓРє
 string Pets::get_sound()const {
 	return sound;
 }
 
-/// Конструктор без параметров
+/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 Dog::Dog() {
 	Specialization = "hunter";
 	AbilitytoSwim = 1;
 	Commands = "found";
 };
-///Конструктор
-Dog::Dog(string spec, bool swim, string comm) {
+///РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+Dog::Dog(const string &spec, bool swim,const string &comm) {
 	if (spec == "") throw invalid_argument("Error: field specialization is empty");
-	if (swim != 1 && swim != 0) throw invalid_argument("Error: field AbilitytoSwim; is empty");
+	//if (swim != 1 && swim != 0) throw invalid_argument("Error: field AbilitytoSwim; is empty");
 	if (comm == "") throw invalid_argument("Error: field commands is empty");
 	Specialization = spec;
 	AbilitytoSwim = swim;
 	Commands = comm;
 }
-///Деструктор
+///Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Dog::~Dog() {};
 
-/// Задание базового типа из основного класса
-void Dog::set_BaseType(string name1, string color1, double weight1, string sound1) {
+/// Р—Р°РґР°РЅРёРµ Р±Р°Р·РѕРІРѕРіРѕ С‚РёРїР° РёР· РѕСЃРЅРѕРІРЅРѕРіРѕ РєР»Р°СЃСЃР°
+void Dog::set_BaseType(const string &name1, const string &color1, double weight1,const string &sound1) {
 	if (name1 == "") throw invalid_argument("Error: field name is empty");
 	if (color1 == "") throw invalid_argument("Error: field color is empty");
 	if (weight1 != (double)weight1) throw invalid_argument("Error: field weight is empty");
@@ -112,58 +113,58 @@ void Dog::set_BaseType(string name1, string color1, double weight1, string sound
 	weight = weight1;
 	sound = sound1;
 };
-/// Вернуть в строку информацию о собаке
+/// Р’РµСЂРЅСѓС‚СЊ РІ СЃС‚СЂРѕРєСѓ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃРѕР±Р°РєРµ
 string Dog::toString() {
 	return Pets::toString()  + " Specialization " + Specialization + "; " + " AbilityToSwim " + (AbilitytoSwim == 1 ? "yes" : "no") + "; " + " Commands " + Commands + "; ";
 };
-/// Установить специализацию
-void Dog::set_specialization(string spec) {
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЋ
+void Dog::set_specialization(const string &spec) {
 	if (spec == "") throw invalid_argument("Error: field specialization is empty");
 	Specialization = spec;
 }  
-/// Вернуть специализацию
+/// Р’РµСЂРЅСѓС‚СЊ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЋ
 string Dog::get_specialization()const{
 	return Specialization;
 };
-/// Установить умение плавать
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СѓРјРµРЅРёРµ РїР»Р°РІР°С‚СЊ
 void Dog::set_AbilitytoSwim(bool swim) {
-	if (swim != 1 && swim != 0) throw invalid_argument("Error: field AbilitytoSwim; is empty");
+	//if (swim != 1 && swim != 0) throw invalid_argument("Error: field AbilitytoSwim; is empty");
 	AbilitytoSwim = swim;
 } 
-/// Вернуть умение плавать
+/// Р’РµСЂРЅСѓС‚СЊ СѓРјРµРЅРёРµ РїР»Р°РІР°С‚СЊ
 bool Dog::get_AbilitytoSwim()const {
 	return AbilitytoSwim;
 };
-/// Установить знание команд
-void Dog::set_commands(string comm) {
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р·РЅР°РЅРёРµ РєРѕРјР°РЅРґ
+void Dog::set_commands(const string &comm) {
 	if (comm == "") throw invalid_argument("Error: field commands is empty");
 	Commands = comm;
 };
-/// Вернуть знание команд
+/// Р’РµСЂРЅСѓС‚СЊ Р·РЅР°РЅРёРµ РєРѕРјР°РЅРґ
 string Dog::get_commands() const{
 	return Commands;
 };
 
-/// Конструктор без параметров
+/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 Parrot::Parrot() {
 
 	AbilityToFly = 1;
 	social = "Single";
 };
 
-/// Конструктор с параметрами
-Parrot::Parrot(bool fly, string soc) {
-	if (fly != 1 && fly != 0) throw invalid_argument("Error: field AbilityToFly is empty");
+/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+Parrot::Parrot(bool fly, const string &soc) {
+	//if (fly != 1 && fly != 0) throw invalid_argument("Error: field AbilityToFly is empty");
 	if (soc == "") throw invalid_argument("Error: field social is empty");
 	AbilityToFly = fly;
 	social = soc;
 };
 
-/// Деструктор
+/// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Parrot::~Parrot(){};
 
-/// Задание базового типа из основного класса
-void Parrot::set_BaseType(string name1, string color1, double weight1, string sound1) {
+/// Р—Р°РґР°РЅРёРµ Р±Р°Р·РѕРІРѕРіРѕ С‚РёРїР° РёР· РѕСЃРЅРѕРІРЅРѕРіРѕ РєР»Р°СЃСЃР°
+void Parrot::set_BaseType(const string &name1, const string &color1, double weight1,const string &sound1) {
 	if (name1 == "") throw invalid_argument("Error: field name is empty");
 	if (color1 == "") throw invalid_argument("Error: field color is empty");
 	if (weight1 != (double)weight1) throw invalid_argument("Error: field weight is empty");
@@ -174,25 +175,25 @@ void Parrot::set_BaseType(string name1, string color1, double weight1, string so
 	weight = weight1;
 	sound = sound1;
 };
-/// Вывести в строку информацию о ппопугае
+/// Р’С‹РІРµСЃС‚Рё РІ СЃС‚СЂРѕРєСѓ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРїРѕРїСѓРіР°Рµ
 string Parrot::toString() {
 	return Pets::toString()  + "AbilityToFly: " + (AbilityToFly  == 1 ? "yes" : "no") + "; " + "social: " + social + ";";
 };
-/// Установить умение летать
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СѓРјРµРЅРёРµ Р»РµС‚Р°С‚СЊ
 void Parrot::set_AbilityToFly(bool fly) {
 	if (fly != 1 && fly != 0) throw invalid_argument("Error: field AbilityToFly is empty");
 	AbilityToFly = fly;
 };
-/// Вернуть умение летать
+/// Р’РµСЂРЅСѓС‚СЊ СѓРјРµРЅРёРµ Р»РµС‚Р°С‚СЊ
 bool Parrot::get_AbilityToFly() const{
 	return AbilityToFly;
 };
-/// Установить социализацию
-void Parrot::set_social(string soc) {
+/// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕС†РёР°Р»РёР·Р°С†РёСЋ
+void Parrot::set_social( const string &soc) {
 	if (soc == "") throw invalid_argument("Error: field social is empty");
 	social = soc;
 };
-/// Вернуть социализацию
+/// Р’РµСЂРЅСѓС‚СЊ СЃРѕС†РёР°Р»РёР·Р°С†РёСЋ
 string Parrot::get_social()const{
 	return social;
 };
